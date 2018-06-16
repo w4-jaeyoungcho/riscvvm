@@ -1,0 +1,7 @@
+; peripherals
+(.equ output 0x00100000)
+(.equ input 0x00100004)
+
+(.equ end_pc_target 0x10000000)
+(.equ mtvec 0x00000010)
+

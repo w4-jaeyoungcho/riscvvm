@@ -1,0 +1,24 @@
+; sync.
+(.include "test/system.vasm")
+
+(j (&- RESET_HANDLER pc))
+(nop)
+(nop)
+(nop)
+
+;(org 0x00000010)
+(: TRAP_VECTOR)
+;; Nothing
+
+(: RESET_HANDLER)
+;; t3 output
+;; t4 input
+(lui t3 output)
+(addi t3 t3 output)
+(lui t4 input)
+(addi t4 t4 input)
+
+(: LOOP)
+(lw t1 t4 0)
+(sw t3 t1 0)
+(j (&- LOOP pc))
